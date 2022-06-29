@@ -1,4 +1,4 @@
-import {  of} from "rxjs";
+import {  from, of} from "rxjs";
 
  const obs$ = of(...[1,2,3,4,5,6]);
 //const obs$ = of([1,2,], {a:1, b:2}, function(){}, true);
@@ -11,3 +11,21 @@ obs$.subscribe({
 });
 
 console.log('FIn del obs$');
+
+/** Of = toma argumentos y genera una secuencia 
+ *from = array, primise, iterable, observable.
+*/
+
+
+//const source$ = from([1,2,3,4,5]);
+// const source$ = of(...[1,2,3,4,5]);
+// const source$ = from('Nasly');
+
+const source$ = from(fetch('https://api.github.com/users/nkescobar'));
+
+source$.subscribe(async(resp) => {
+  console.log(resp);
+
+  const dataResp = await resp.json();
+  console.log(dataResp);
+});
