@@ -1,5 +1,5 @@
 import { combineLatest, fromEvent } from "rxjs";
-import { map, pluck } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 // const keyup$ = fromEvent<KeyboardEvent>(document, 'keyup');
 // const click$ = fromEvent(document, 'click');
